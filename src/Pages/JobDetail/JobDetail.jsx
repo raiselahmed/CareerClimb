@@ -4,8 +4,10 @@ import {
   FaMapMarkerAlt,
   FaRegCalendarAlt,
 } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { MdOutlineWork } from "react-icons/md";
+import { useContext } from "react";
+import AuthContext from "../../Context/AuthContext";
 
 const JobDetail = () => {
   const {
@@ -22,6 +24,44 @@ const JobDetail = () => {
     jobType,
   } = useLoaderData();
 
+  const id = useParams()
+  const {user} = useContext(AuthContext);
+    console.log(id, user);;
+
+  //
+  const handleSumbitJob = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const gitHubLInk= form.gitHubLInk.value;
+    const tel = form.tel.value;
+    const discrp = form.textAria.value;
+    // const jbApler = {name,gitHubLInk, tel, discrp};
+    // console.log(jbApler);
+
+    //
+    const jobApplication = {
+      job_id: id,
+      applicant_email: user.email,
+      name,
+      gitHubLInk,
+      tel,
+      discrp
+    }
+    console.log(jobApplication);
+    fetch('http://localhost:5000/job-application', {
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jobApplication),
+    })
+    .then(res=> res.json())
+    .then(data=>{
+      console.log(data)
+    })
+
+  }
   return (
     <div className="container py-12 mx-auto">
       {/* Header Section */}
@@ -64,7 +104,7 @@ const JobDetail = () => {
             <p className="py-2 text-sm text-gray-500">Please fill in your information and send it to the employer.</p>
           </div>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSumbitJob} className="space-y-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">
@@ -75,7 +115,7 @@ const JobDetail = () => {
                 type="text"
                 placeholder="Steven Job"
                 className="input input-bordered w-full"
-                value="Steven Job"
+                name="name"
                 required
               />
             </div>
@@ -83,14 +123,14 @@ const JobDetail = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text">
-                  Email <span className="text-red-500">*</span>
+                  GitHub Link <span className="text-red-500">*</span>
                 </span>
               </label>
               <input
-                type="email"
-                placeholder="stevenjob@gmail.com"
+                type="link"
+                placeholder="your gitHub Link "
                 className="input input-bordered w-full"
-                value="stevenjob@gmail.com"
+                name="gitHubLInk"
                 required
               />
             </div>
@@ -105,7 +145,7 @@ const JobDetail = () => {
                 type="tel"
                 placeholder="(+01) 234 567 89"
                 className="input input-bordered w-full"
-                value="(+01) 234 567 89"
+               name="tel"
                 required
               />
             </div>
@@ -117,15 +157,16 @@ const JobDetail = () => {
               <textarea
                 className="textarea textarea-bordered h-24"
                 placeholder="Your description..."
+                name="textAria"
               ></textarea>
             </div>
 
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text">Upload Resume</span>
               </label>
               <input type="file" className="file-input file-input-bordered w-full" />
-            </div>
+            </div> */}
 
             <div className="form-control">
               <label className="label cursor-pointer justify-start gap-2">
