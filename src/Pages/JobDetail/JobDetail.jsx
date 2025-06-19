@@ -4,10 +4,11 @@ import {
   FaMapMarkerAlt,
   FaRegCalendarAlt,
 } from "react-icons/fa";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import { MdOutlineWork } from "react-icons/md";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const JobDetail = () => {
   const {
@@ -23,11 +24,22 @@ const JobDetail = () => {
     salaryRange,
     jobType,
   } = useLoaderData();
-
+ const showAlert = (title, text, icon) => {
+    Swal.fire({
+      title,
+      text,
+      icon,
+     
+      confirmButtonText: "OK",
+       didOpen: (popup) => {
+        popup.style.zIndex = '9999999'; // Set the z-index for the SweetAlert popup
+      }
+    });
+  };
   const id = useParams()
   const {user} = useContext(AuthContext);
     console.log(id, user);;
-
+    const navigate = useNavigate();
   //
   const handleSumbitJob = e =>{
     e.preventDefault();
@@ -58,9 +70,16 @@ const JobDetail = () => {
     })
     .then(res=> res.json())
     .then(data=>{
-      console.log(data)
+   
+      if (data.insertedId) {
+        
+        showAlert("Success!", "Your application has been submitted successfully.", "success");
+          document.getElementById("job_application_modal").close();
+          navigate('/myApplication');
+          form.reset();
+      }
     })
-
+   
   }
   return (
     <div className="container py-12 mx-auto">
@@ -179,7 +198,7 @@ const JobDetail = () => {
             </div>
 
             <div className="modal-action justify-center mt-6">
-              <button className="btn btn-primary w-full max-w-xs">Apply Job</button>
+              <button className="btn btn-primary w-full max-w-xs" >Apply Job</button>
             </div>
           </form>
           <div className="text-center mt-4 text-sm text-gray-500">

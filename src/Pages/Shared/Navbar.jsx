@@ -13,7 +13,7 @@ const {user, signOutUser} = useContext(AuthContext);
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={""}>All Sports Equipmenet</NavLink>
+        <NavLink to={"/myApplication"}>My Application</NavLink>
       </li>
       <li>
         <NavLink to={''}>Add Equipment</NavLink>
