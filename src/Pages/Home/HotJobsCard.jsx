@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'; // Changed to react-router-dom for Link
 
 const HotJobsCard = ({job}) => {
      const {_id ,title, company, company_logo, requirements, description, location, salaryRange } = job;
+
+     
     return (
            <div className="card bg-base-200 shadow-xl p-6 relative"> {/* Corrected */}
       {/* Top Right Icon */}
@@ -56,11 +58,13 @@ const HotJobsCard = ({job}) => {
       {/* Salary and Apply Button */}
       <div className="flex justify-between items-center"> {/* Corrected */}
         <div className="text-3xl font-bold text-gray-800"> {/* Corrected, changed text-gray-200/300 to 800/700 for better contrast */}
-          ${salaryRange.min}<span className="text-xl font-normal text-gray-700">/{salaryRange.currency}</span> {/* Corrected */}
+          ${salaryRange?.min}<span className="text-xl font-normal text-gray-700">/{salaryRange?.currency}</span> {/* Corrected */}
         </div>
       <Link to={`/jobs/${_id}`}>
-          <button className="btn btn-primary px-6 py-3 rounded-lg text-white font-semibold">Apply Now</button> {/* Corrected */}
+          <button className="btn btn-primary px-6 py-3 rounded-lg text-white font-semibold">Job Details</button> {/* Corrected */}
       </Link>
+
+     
       </div>
     </div>
     );

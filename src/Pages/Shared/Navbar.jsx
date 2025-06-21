@@ -16,11 +16,12 @@ const {user, signOutUser} = useContext(AuthContext);
         <NavLink to={"/myApplication"}>My Application</NavLink>
       </li>
       <li>
-        <NavLink to={''}>Add Equipment</NavLink>
+        <NavLink to={'job-post'}>Job Post</NavLink>
       </li>
       <li>
-        <NavLink to={""}>My Equipment</NavLink>
+        <NavLink to={"my-posted-job"}>My Posted Jobs</NavLink>
       </li>
+     
     </>
   );
 
@@ -87,9 +88,12 @@ const {user, signOutUser} = useContext(AuthContext);
         {
           user?.email? <>
              <Link>
-            <button onClick={handleLogOut} className="btn">
+              <div>
+              <strong>{user.email}</strong>
+                 <button onClick={handleLogOut} className="btn">
               Log Out
             </button>
+              </div>
           </Link>
            </> : <>
            <Link to={'/register'}>

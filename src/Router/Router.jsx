@@ -9,6 +9,9 @@ import Home from "../Pages/Home/Home";
 import JobDetail from "../Pages/JobDetail/JobDetail";
 import PrivetRouter from "./PrivetRouter";
 import MyApplication from "../Pages/MyApplication/MyApplication";
+import AddJob from "../Pages/AddJob.ksx/AddJob";
+import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
+import ViweApplication from "../Pages/ViweAppliaction/ViweApplication";
 
 const Router = createBrowserRouter([
   {
@@ -29,6 +32,19 @@ const Router = createBrowserRouter([
       {
         path: '/myApplication',
         element: <PrivetRouter><MyApplication></MyApplication></PrivetRouter>
+      },
+      {
+        path: '/job-post',
+        element: <PrivetRouter><AddJob></AddJob></PrivetRouter>
+      },
+      {
+        path: '/viweApplication/:job_id',
+        element: <PrivetRouter><ViweApplication></ViweApplication></PrivetRouter>,
+       loader: ({ params }) => fetch(`http://localhost:5000/job-application/jobs/${params.job_id}`)
+      },
+       {
+        path: '/my-posted-job',
+        element: <PrivetRouter><MyPostedJobs></MyPostedJobs></PrivetRouter>
       }
       ,
       {

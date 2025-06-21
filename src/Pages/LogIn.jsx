@@ -32,7 +32,7 @@ const LogIn = () => {
       .then((res) => {
         console.log(res.user);
         showAlert("Success!", "Login Successful.", "success");
-        navigate(from);
+        navigate('/');
       })
       .catch((error) => {
         const errorMessage = error.message;

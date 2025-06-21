@@ -1,32 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../../Context/AuthContext";
+import React, { useContext, useEffect, useState } from 'react';
+import AuthContext from '../../Context/AuthContext';
+import { Link } from 'react-router';
 
-const MyApplication = () => {
-  const { user } = useContext(AuthContext);
-  const [jobs, setJob] = useState([]);
+const MyPostedJobs = () => {
+    const {user} = useContext(AuthContext)
+    const [jobs, setJobs] = useState([]);
+    
+    useEffect(()=>{
+        fetch(`http://localhost:5000/jobs?email=${user.email}`)
+        .then(res => res.json())
+        .then(data =>{
+            setJobs(data)
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/job-application?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setJob(data);
-      });
-  }, [user.email]);
+        })
+    },[user.email])
+    console.log(jobs);
+    return (
+        <div>
+            <h1>HE {jobs.length}</h1>
 
-  return (
-    <div>
-      <h1>job {jobs.length}</h1>
-
-      <div className="overflow-x-auto">
-        <table className="table">
+              <table className="table">
           {/* head */}
           <thead>
             <tr>
               
               <th>Name</th>
               <th>Job</th>
-             
-              <th></th>
+              <th>ii</th>
+              <th>Application</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +46,7 @@ const MyApplication = () => {
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">{job.title}</div>
+                    <div className="font-bold">{job.jb_title}</div>
                     <div className="text-sm opacity-50">{job.location}</div>
                   </div>
                 </div>
@@ -57,9 +58,11 @@ const MyApplication = () => {
                 {job.jobType}
                 </span>
               </td>
-              
+              <td>{job.applicationCount}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">Delete</button>
+                <Link to={`/viweApplication/${job._id}`}>  
+                  <button className="btn btn-ghost btn-xs">Viwe Application</button>
+                </Link>
               </th>
             </tr>)
            }
@@ -67,9 +70,8 @@ const MyApplication = () => {
           {/* foot */}
        
         </table>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default MyApplication;
+export default MyPostedJobs;

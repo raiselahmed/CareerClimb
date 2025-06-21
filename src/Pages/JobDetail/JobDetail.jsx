@@ -169,12 +169,13 @@ const JobDetail = () => {
               />
             </div>
 
-            <div className="form-control">
+            <div className="form-control flex flex-col">
               <label className="label">
                 <span className="label-text">Description</span>
               </label>
               <textarea
-                className="textarea textarea-bordered h-24"
+
+                className="textarea textarea-bordered w-full h-24"
                 placeholder="Your description..."
                 name="textAria"
               ></textarea>
@@ -253,7 +254,7 @@ const JobDetail = () => {
                 <div>
                   <div className="text-sm text-gray-500">Salary</div> {/* Corrected "Sullary" to "Salary" */}
                   <div className="font-semibold text-gray-800">
-                    {salaryRange.min} - {salaryRange.max} bdt
+                    {salaryRange?.min} - {salaryRange?.max} bdt
                   </div>
                 </div>
               </div>
@@ -304,7 +305,7 @@ const JobDetail = () => {
             Essential Knowledge, Skills, and Experience
           </h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700"> {/* Added text-gray-700 */}
-            {requirements.map((item, indx) => (
+            {requirements?.map((item, indx) => (
               <li key={indx}>{item}</li>
             ))}
           </ul>
@@ -318,7 +319,7 @@ const JobDetail = () => {
             Responsibilities
           </h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700"> {/* Added text-gray-700 */}
-            {responsibilities.map((itm, idx) => (
+            {responsibilities?.map((itm, idx) => (
               <li key={idx}>{itm}</li>
             ))}
           </ul>

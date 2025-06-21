@@ -137,15 +137,7 @@ const Register = () => {
                 </button>
               </div>
 
-              {/* Submit Button */}
-              <div className="form-control mt-8"> {/* Added className */}
-                <button
-                  type="submit"
-                  className="btn w-full bg-green-500 hover:bg-green-600 text-white border-none" // Added className
-                >
-                  Submit
-                </button>
-              </div>
+             
             </form>
 
             <p className="text-center mt-3 text-gray-700"> {/* Added className and text-gray-700 */}
