@@ -5,7 +5,7 @@ const HotJob = () => {
     const [jobs, setJobs] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch('http://localhost:5000/jobs?sort=false')
             .then(res => res.json())
             .then(data => {
                 setJobs(data)

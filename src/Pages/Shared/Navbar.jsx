@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import logo from '../../assets/imges/logo.png'
@@ -11,6 +11,9 @@ const {user, signOutUser} = useContext(AuthContext);
     <>
       <li>
         <NavLink to={"/"}>Home</NavLink>
+      </li>
+       <li>
+        <NavLink to={"/allJobs"}>All Jobs</NavLink>
       </li>
       <li>
         <NavLink to={"/myApplication"}>My Application</NavLink>

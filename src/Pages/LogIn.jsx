@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"; // Corrected 
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import login from '../assets/Lottie/register.json' // Assuming 'register.json' is the correct Lottie file for login
 import Lottie from "lottie-react";
+import axios from "axios";
 
 const LogIn = () => {
   const { signInUser, googleSignup } = useContext(AuthContext);
@@ -26,12 +27,20 @@ const LogIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     signInUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        console.log(res.user.email);
         showAlert("Success!", "Login Successful.", "success");
+
+        //token apis
+        const user = {email : email};
+        axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+        .then(res =>{
+          console.log(res.data);
+        })
+
         navigate('/');
       })
       .catch((error) => {
@@ -140,7 +149,7 @@ const LogIn = () => {
 
             <p className="text-center mt-3 text-gray-700"> {/* Added className and text-gray-700 */}
               Don’t Have An Account ?{" "}
-              <Link to={"/auth/register"} className="text-red-600"> {/* Added className */}
+              <Link to={"/register"} className="text-red-600"> {/* Added className */}
                 Register
               </Link>
             </p>

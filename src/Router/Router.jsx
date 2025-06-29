@@ -1,7 +1,9 @@
 import React from "react";
 
-import { createBrowserRouter } from "react-router";
+// import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
+import { createBrowserRouter } from "react-router-dom";
 
 import Register from "../Pages/Register";
 import LogIn from "../Pages/LogIn";
@@ -12,6 +14,7 @@ import MyApplication from "../Pages/MyApplication/MyApplication";
 import AddJob from "../Pages/AddJob.ksx/AddJob";
 import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
 import ViweApplication from "../Pages/ViweAppliaction/ViweApplication";
+import AllJobs from "../Pages/AllJobs/AllJobs";
 
 const Router = createBrowserRouter([
   {
@@ -28,6 +31,11 @@ const Router = createBrowserRouter([
         path: '/jobs/:id',
         element: <PrivetRouter> <JobDetail></JobDetail></PrivetRouter>,
         loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+      },
+      {
+        path: '/allJobs',
+        element: <PrivetRouter><AllJobs></AllJobs></PrivetRouter>,
+        loader: ()=> fetch('http://localhost:5000/jobs')
       },
       {
         path: '/myApplication',

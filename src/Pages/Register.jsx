@@ -142,7 +142,7 @@ const Register = () => {
 
             <p className="text-center mt-3 text-gray-700"> {/* Added className and text-gray-700 */}
               Already Have An Account?{" "}
-              <Link to={"/auth/login"} className="text-red-600"> {/* Corrected path to /auth/login, added className */}
+              <Link to={"/login"} className="text-red-600"> {/* Corrected path to /auth/login, added className */}
                 Login
               </Link>
             </p>
