@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import logo from '../../assets/imges/logo.png'
 const Navbar = () => {
 const {user, signOutUser} = useContext(AuthContext);
-
+const [isScrolld, setScrolld] = useState(false)
 
   const links = (
     <>
@@ -50,8 +50,26 @@ const {user, signOutUser} = useContext(AuthContext);
       });
   };
 
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolld(true);
+    } else {
+      setScrolld(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Clean up the event listener on unmount
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div  className={`navbar 0 shadow-sm fixed left-0 right-0  z-999 ${isScrolld ? "bg-base-300 shadow-2xl" : "bg-base-10"}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

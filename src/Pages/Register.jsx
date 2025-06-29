@@ -50,7 +50,7 @@ const Register = () => {
         </div>
         <div className="card w-full max-w-2xl bg-base-100 shadow-xl rounded-lg overflow-hidden"> {/* Added className and bg-base-100 shadow-xl */}
           <div className="card-body p-8"> {/* Added className */}
-            <h2 className="card-title text-2xl font-bold mb-6 text-gray-800"> {/* Added className and text-gray-800 for contrast */}
+            <h2 className="card-title text-2xl font-bold mb-6 "> {/* Added className and text-gray-800 for contrast */}
               Registration Info
             </h2>
 
@@ -140,7 +140,7 @@ const Register = () => {
              
             </form>
 
-            <p className="text-center mt-3 text-gray-700"> {/* Added className and text-gray-700 */}
+            <p className="text-center mt-3 text-gray-400"> {/* Added className and text-gray-700 */}
               Already Have An Account?{" "}
               <Link to={"/login"} className="text-red-600"> {/* Corrected path to /auth/login, added className */}
                 Login

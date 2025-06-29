@@ -26,7 +26,7 @@ const AddJob = () => {
     const initialData = Object.fromEntries(formData.entries());
     const { min, max, currency, ...newJobs } = initialData;
 
-    newJobs.salaryRange = { min, max, currency };
+    newJobs.salaryRange = { min : parseInt(min), max : parseInt(max), currency };
 
     newJobs.requirements = newJobs.requirements.split("\n");
     newJobs.responsibilities = newJobs.responsibilities.split("\n");

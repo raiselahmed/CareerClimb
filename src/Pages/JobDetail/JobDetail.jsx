@@ -96,7 +96,7 @@ const JobDetail = () => {
 
         <div className="mt-4 text-white">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{title}</h1> {/* Added text-gray-800 for visibility against white background */}
+            <h1 className="text-2xl md:text-3xl font-bold ">{title}</h1> {/* Added text-gray-800 for visibility against white background */}
 
             <button
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -202,7 +202,7 @@ const JobDetail = () => {
               <button className="btn btn-primary w-full max-w-xs" >Apply Job</button>
             </div>
           </form>
-          <div className="text-center mt-4 text-sm text-gray-500">
+          <div className="text-center mt-4 text-sm ">
             Do you need support? <a href="#" className="link link-hover">Contact Us</a>
           </div>
         </div>
@@ -215,7 +215,7 @@ const JobDetail = () => {
       <div className="mt-6">
         {/* Employment Information */}
         <section className="mb-8 p-8 bg-base-200 border">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 ">
             Employment Information
           </h2>
           <div className="bg-base-200">
@@ -227,7 +227,7 @@ const JobDetail = () => {
                 <img className="w-10 me-2" src={company_logo} alt="" />
                 <div>
                   <div className="text-sm text-gray-500">Industry</div>
-                  <div className="font-semibold text-gray-800">{company}</div>
+                  <div className="font-semibold ">{company}</div>
                 </div>
               </div>
               <div className="flex mt-4 items-center">
@@ -235,7 +235,7 @@ const JobDetail = () => {
                 {/* Changed to MdOutlineWork for Job Type */}
                 <div>
                   <div className="text-sm text-gray-500">Job type</div>
-                  <div className="font-semibold text-gray-800">{jobType}</div>
+                  <div className="font-semibold ">{jobType}</div>
                 </div>
               </div>
             </div>
@@ -245,7 +245,7 @@ const JobDetail = () => {
                 <FaBriefcase className="h-5 w-5 mr-2 text-gray-500" />
                 <div>
                   <div className="text-sm text-gray-500">Job level</div>
-                  <div className="font-semibold text-gray-800">{category}</div>
+                  <div className="font-semibold ">{category}</div>
                 </div>
               </div>
 
@@ -253,7 +253,7 @@ const JobDetail = () => {
                 <FaHourglassHalf className="h-5 w-5 mr-2 text-gray-500" />
                 <div>
                   <div className="text-sm text-gray-500">Salary</div> {/* Corrected "Sullary" to "Salary" */}
-                  <div className="font-semibold text-gray-800">
+                  <div className="font-semibold ">
                     {salaryRange?.min} - {salaryRange?.max} bdt
                   </div>
                 </div>
@@ -265,7 +265,7 @@ const JobDetail = () => {
                 <FaRegCalendarAlt className="h-5 w-5 mr-2 text-gray-500" />
                 <div>
                   <div className="text-sm text-gray-500">Deadline</div>
-                  <div className="font-semibold text-gray-800">{applicationDeadline}</div>
+                  <div className="font-semibold ">{applicationDeadline}</div>
                 </div>
               </div>
 
@@ -273,7 +273,7 @@ const JobDetail = () => {
                 <FaMapMarkerAlt className="h-5 w-5 mr-2 text-gray-500" />
                 <div>
                   <div className="text-sm text-gray-500">Location</div>
-                  <div className="font-semibold text-gray-800">{location}</div>
+                  <div className="font-semibold ">{location}</div>
                 </div>
               </div>
             </div>
@@ -284,11 +284,11 @@ const JobDetail = () => {
 
         {/* Welcome to AliStudio Team */}
         <section className="mb-8">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 ">
             Welcome to AliStudio Team
           </h2>
-          <p className="leading-relaxed mb-4 text-gray-700">{description}</p> {/* Added text-gray-700 */}
-          <p className="leading-relaxed text-gray-700"> {/* Added text-gray-700 */}
+          <p className="leading-relaxed mb-4 text-gray-500">{description}</p> {/* Added text-gray-700 */}
+          <p className="leading-relaxed text-gray-500"> {/* Added text-gray-700 */}
             This ideal candidate will have strong creative skills and a
             portfolio of work which demonstrates that passion for illustrative
             design and typography. This candidate will have experiences in
@@ -301,10 +301,10 @@ const JobDetail = () => {
 
         {/* Essential Knowledge, Skills, and Experience */}
         <section className="mb-8">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 ">
             Essential Knowledge, Skills, and Experience
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700"> {/* Added text-gray-700 */}
+          <ul className="list-disc list-inside space-y-2 text-gray-500"> {/* Added text-gray-700 */}
             {requirements?.map((item, indx) => (
               <li key={indx}>{item}</li>
             ))}
@@ -315,10 +315,10 @@ const JobDetail = () => {
 
         {/* Preferred Experience */}
         <section className="mb-8">
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 ">
             Responsibilities
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700"> {/* Added text-gray-700 */}
+          <ul className="list-disc list-inside space-y-2 text-gray-500"> {/* Added text-gray-700 */}
             {responsibilities?.map((itm, idx) => (
               <li key={idx}>{itm}</li>
             ))}

@@ -77,7 +77,7 @@ const LogIn = () => {
         </div>
         <div className="card w-full max-w-2xl bg-base-100 shadow-xl rounded-lg overflow-hidden"> {/* Added className */}
           <div className="card-body p-8"> {/* Added className */}
-            <h2 className="card-title text-2xl text-center font-bold mb-6 text-gray-800"> {/* Added className and text-gray-800 for contrast */}
+            <h2 className="card-title text-2xl text-center font-bold mb-6 "> {/* Added className and text-gray-800 for contrast */}
               Log in Info
             </h2>
 
@@ -147,7 +147,7 @@ const LogIn = () => {
               </div>
             </div>
 
-            <p className="text-center mt-3 text-gray-700"> {/* Added className and text-gray-700 */}
+            <p className="text-center mt-3 text-gray-400"> {/* Added className and text-gray-700 */}
               Don’t Have An Account ?{" "}
               <Link to={"/register"} className="text-red-600"> {/* Added className */}
                 Register

@@ -2,13 +2,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const useJobs = (sort, search) => {
+const useJobs = (sort, search, minSallary, maxSallary) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let isMounted = true; // Prevent state updates if the component unmounts
-    axios.get(`http://localhost:5000/jobs?sort=${sort}&search=${search}`)
+    axios.get(`http://localhost:5000/jobs?sort=${sort}&search=${search}&min=${minSallary}&max=${maxSallary}`)
       .then((res) => {
         if (isMounted) {
           setJobs(res.data);
@@ -25,7 +25,7 @@ const useJobs = (sort, search) => {
     return () => {
       isMounted = false; // Cleanup to prevent memory leaks
     };
-  }, [sort,search]);
+  }, [sort,search, minSallary, maxSallary]);
 
   return { jobs, loading };
 };
