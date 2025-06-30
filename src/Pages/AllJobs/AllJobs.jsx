@@ -4,6 +4,7 @@ import HotJobsCard from "../Home/HotJobsCard";
 // import { useLoaderData } from 'react-router';
 import Slider from "@mui/material/Slider";
 import PriceRnge from "../../Components/PriceRneg";
+import Loading from "../../Components/Loading";
 // import PriceRnge from '../../Components/PriceRneg';
 
 const AllJobs = () => {
@@ -16,7 +17,7 @@ const AllJobs = () => {
   console.log(sort);
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <Loading></Loading>
   }
 
   // const jobs = useLoaderData()
