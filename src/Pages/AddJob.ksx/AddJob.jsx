@@ -32,7 +32,7 @@ const AddJob = () => {
     newJobs.responsibilities = newJobs.responsibilities.split("\n");
     console.log(newJobs);
 
-    fetch("http://localhost:5000/jobs", {
+    fetch("https://career-climb-server.vercel.app/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

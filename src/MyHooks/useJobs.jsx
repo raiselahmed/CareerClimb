@@ -8,7 +8,7 @@ const useJobs = (sort, search, minSallary, maxSallary) => {
 
   useEffect(() => {
     let isMounted = true; // Prevent state updates if the component unmounts
-    axios.get(`http://localhost:5000/jobs?sort=${sort}&search=${search}&min=${minSallary}&max=${maxSallary}`)
+    axios.get(`https://career-climb-server.vercel.app/jobs?sort=${sort}&search=${search}&min=${minSallary}&max=${maxSallary}`)
       .then((res) => {
         if (isMounted) {
           setJobs(res.data);

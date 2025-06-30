@@ -69,7 +69,7 @@ useEffect(() => {
 
 
   return (
-    <div  className={`navbar 0 shadow-sm fixed left-0 right-0  z-999 ${isScrolld ? "bg-base-300 shadow-2xl" : "bg-base-10"}`}>
+    <div  className={`navbar 0 shadow-sm sticky top-0  w-full z-999 ${isScrolld ? "bg-base-300 shadow-2xl" : "bg-base-10"}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

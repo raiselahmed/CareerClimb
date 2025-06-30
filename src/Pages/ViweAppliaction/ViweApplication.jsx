@@ -13,7 +13,7 @@ const ViweApplication = () => {
       status: e.target.value,
     };
 
-    fetch(`http://localhost:5000/job-application/${id}`, {
+    fetch(`https://career-climb-server.vercel.app/job-application/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -8,18 +8,6 @@ const MyApplication = () => {
   const [jobs, setJob] = useState([]);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    // fetch(`http://localhost:5000/job-application?email=${user.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setJob(data);
-    //   });
-
-    // axios.get(`http://localhost:5000/job-application?email=${user.email}`, { withCredentials: true })
-    // .then(res => {
-    //   setJob(res.data); // This line will update your jobs state
-
-    // })
-
     axiosSecure
       .get(`/job-application?email=${user.email}`)
       .then((res) => setJob(res.data || [])) // Fallback to an empty array if data is undefined or null

@@ -30,12 +30,12 @@ const Router = createBrowserRouter([
       {
         path: '/jobs/:id',
         element: <PrivetRouter> <JobDetail></JobDetail></PrivetRouter>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://career-climb-server.vercel.app/jobs/${params.id}`)
       },
       {
         path: '/allJobs',
         element: <PrivetRouter><AllJobs></AllJobs></PrivetRouter>,
-        loader: ()=> fetch('http://localhost:5000/jobs')
+        loader: ()=> fetch('https://career-climb-server.vercel.app/jobs')
       },
       {
         path: '/myApplication',
@@ -48,7 +48,7 @@ const Router = createBrowserRouter([
       {
         path: '/viweApplication/:job_id',
         element: <PrivetRouter><ViweApplication></ViweApplication></PrivetRouter>,
-       loader: ({ params }) => fetch(`http://localhost:5000/job-application/jobs/${params.job_id}`)
+       loader: ({ params }) => fetch(`https://career-climb-server.vercel.app/job-application/jobs/${params.job_id}`)
       },
        {
         path: '/my-posted-job',

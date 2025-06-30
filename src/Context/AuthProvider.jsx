@@ -34,14 +34,14 @@ const AuthProvider = ({ children }) => {
   //     if (currentUser?.email) {
   //       const user = { email: currentUser.email };
 
-  //       axios.post("http://localhost:5000/jwt", user).then((res) => {
+  //       axios.post("https://career-climb-server.vercel.app/jwt", user).then((res) => {
   //         console.log("login token", res.data);
   //         setLoading(false);
   //       });
   //     } else {
   //       axios
   //         .post(
-  //           "http://localhost:5000/logout",
+  //           "https://career-climb-server.vercel.app/logout",
   //           {},
   //           {
   //             withCredentials: true,
@@ -70,7 +70,7 @@ useEffect(() => {
       const user = { email: currentUser.email };
 
       axios
-        .post("http://localhost:5000/jwt", user, { withCredentials: true })
+        .post("https://career-climb-server.vercel.app/jwt", user, { withCredentials: true })
         .then((res) => {
           console.log("Login Token:", res.data);
         })
@@ -82,7 +82,7 @@ useEffect(() => {
         });
     } else {
       axios
-        .post("http://localhost:5000/logout", {}, { withCredentials: true })
+        .post("https://career-climb-server.vercel.app/logout", {}, { withCredentials: true })
         .then((res) => {
           console.log("Logout:", res.data);
         })

@@ -61,7 +61,7 @@ const JobDetail = () => {
       discrp
     }
     console.log(jobApplication);
-    fetch('http://localhost:5000/job-application', {
+    fetch('https://career-climb-server.vercel.app/job-application', {
       method: 'POST',
         headers: {
           'Content-Type': 'application/json',

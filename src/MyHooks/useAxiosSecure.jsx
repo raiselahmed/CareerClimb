@@ -6,7 +6,7 @@ import AuthContext from '../Context/AuthContext';
 
 
 const axiosInstace = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://career-climb-server.vercel.app',
     withCredentials: true
 })
 ;
